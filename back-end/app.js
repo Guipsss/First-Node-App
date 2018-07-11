@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+var ObjectId = require('mongodb').ObjectID;
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
@@ -34,6 +35,29 @@ const insertDocuments = function(db, callback) {
     });
 }
 
+let id;
+const removeDocument = function(db, callback) {
+    // Get the documents collection
+    const collection = db.collection('documents');
+    collection.deleteOne({ _id : id }, function(err, result) {
+        assert.equal(err, null);
+        console.log("Removed a document");
+        callback(result);
+    });    
+}
+
+let newName;
+const updateDocument = function(db, callback) {
+    // Get the documents collection
+    const collection = db.collection('documents');
+    // Update document where a is 2, set b equal to 1
+    collection.updateOne({ _id : id }
+        , { $set: { name : newName } }, function(err, result) {
+        console.log("Updated a document");
+        callback(result);
+    });  
+}
+
 //app.get('/', (req, res) => res.send('Hello World!'));
 
 app.use(function(req, res, next){
@@ -56,7 +80,6 @@ app.get('/', (req, res) => {
     // Use connect method to connect to the server
     MongoClient.connect(url, function(err, client) {
         assert.equal(null, err);
-        console.log("Connected successfully to server");
     
         const db = client.db(dbName);
 
@@ -68,12 +91,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/cadastrar', (req, res) => {
-    console.log(req.body.name);
     insData = { name : req.body.name};
     
     MongoClient.connect(url, function(err, client) {
         assert.equal(null, err);
-        console.log("Connected successfully to server");
     
         const db = client.db(dbName);
 
@@ -84,4 +105,36 @@ app.post('/cadastrar', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.delete('/delete', (req, res) => {
+    id = ObjectId(req.body._id);
+
+    MongoClient.connect(url, function(err, client) {
+        assert.equal(null, err);
+    
+        const db = client.db(dbName);
+
+        removeDocument(db, function(){
+            res.send({ status : 'Success'});
+            client.close();
+        });
+    });
+});
+
+app.post('/update', (req, res) => {
+    id = ObjectId(req.body._id);
+    newName = req.body.name;
+    console.log(req.body);
+
+    MongoClient.connect(url, function(err, client) {
+        assert.equal(null, err);
+    
+        const db = client.db(dbName);
+
+        updateDocument(db, function(){
+            res.send({ status : 'Success'});
+            client.close();
+        });
+    });
+});
+
+app.listen(3000, () => console.log('Listening on Port 3000'));
