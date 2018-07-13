@@ -90,7 +90,7 @@ app.get('/', (req, res) => {
     });
 });
 
-app.post('/cadastrar', (req, res) => {
+app.post('/insert', (req, res) => {
     insData = { name : req.body.name};
     
     MongoClient.connect(url, function(err, client) {
@@ -120,7 +120,7 @@ app.delete('/delete', (req, res) => {
     });
 });
 
-app.post('/update', (req, res) => {
+app.put('/update', (req, res) => {
     id = ObjectId(req.body._id);
     newName = req.body.name;
     console.log(req.body);
