@@ -4,6 +4,7 @@ window.handleTableAction = (id, name, method) => {
     if(method == 'PUT') {
         formMethod = method;
         document.querySelector('#name').value = name;
+        document.querySelector('#name').focus();
         idHolder = id;
     } else if(method == 'DELETE') {
         formAction(id, null, method);
