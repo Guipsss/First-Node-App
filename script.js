@@ -63,15 +63,17 @@ let getNames = () => {
         return response.json();
     }).then(data => {
         document.querySelector('#app').innerHTML = `
-            <table>
+            <table id="namesTable">
             <tr>
                 <th>Nome</th>
+                <th>Delete</th>
+                <th>Edit</th>
             </tr>
             ${data.map(i => `
                 <tr>
                     <td>${i.name}</td>
-                    <td><button onclick="handleTableAction('${i._id}', null, 'DELETE')">Delete</button></td>
-                    <td><button onclick="handleTableAction('${i._id}', '${i.name}', 'PUT')">Update</button></td>
+                    <td><button onclick="handleTableAction('${i._id}', null, 'DELETE')"><i class="fas fa-trash-alt"></i></button></td>
+                    <td><button onclick="handleTableAction('${i._id}', '${i.name}', 'PUT')"><i class="fas fa-pen"></i></button></td>
                 </tr>
             `).join('')}
             </table>

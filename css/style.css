@@ -1,3 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 100vh;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #303030;
+  color: #ffffff; }
 
+.wrapper {
+  display: block;
+  width: 40%;
+  background-color: rgba(81, 81, 81, 0.5);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 2px; }
+  @media screen and (max-width: 900px) {
+    .wrapper {
+      width: 90%; } }
+
+h1 {
+  text-align: center;
+  font-size: 28px; }
+
+.form {
+  display: block; }
+  .form, .form input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .form .form-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    .form .form-item > input[type=text] {
+      padding: 5px 10px 5px 10px;
+      border: 2px solid #ffffff;
+      display: block;
+      width: 100%; }
+      .form .form-item > input[type=text]:focus {
+        outline: 2px solid #e5e5e5; }
+    .form .form-item > input[type=submit] {
+      background-color: #303030;
+      -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+      -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+      border: 0;
+      font-family: 'Titillium Web', sans-serif;
+      padding: 3px 15px 3px 15px;
+      margin-left: auto;
+      color: #ffffff;
+      font-size: 16px;
+      -webkit-transition: background-color ease 200ms, border ease 200ms, box-shadow ease 200ms;
+      -moz-transition: background-color ease 200ms, border ease 200ms, box-shadow ease 200ms;
+      transition: background-color ease 200ms, border ease 200ms, box-shadow ease 200ms; }
+      .form .form-item > input[type=submit]:hover {
+        background-color: rgba(48, 48, 48, 0.5);
+        -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4); }
+
+.status {
+  display: block;
+  height: 20px; }
+
+#namesTable {
+  width: 100%;
+  border-collapse: collapse; }
+  #namesTable tr {
+    background-color: rgba(229, 229, 229, 0.2); }
+    #namesTable tr:nth-of-type(even) {
+      background-color: transparent; }
+  #namesTable td, #namesTable th {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 10px 5px 10px; }
+  #namesTable td {
+    font-size: 17px;
+    color: #e5e5e5; }
+  #namesTable th {
+    font-size: 18px; }
+  #namesTable button {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; }
+    #namesTable button:focus {
+      outline: 0; }
+    #namesTable button > i {
+      font-size: 17px;
+      color: #e5e5e5;
+      padding: 5px;
+      -webkit-transition: color ease 200ms;
+      -moz-transition: color ease 200ms;
+      transition: color ease 200ms; }
+      #namesTable button > i:hover {
+        color: rgba(229, 229, 229, 0.2); }
 
 /*# sourceMappingURL=style.css.map */

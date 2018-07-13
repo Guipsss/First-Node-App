@@ -4,17 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Learning Node and Mongo</title>
 </head>
 <body>
-    <form id="form">
-        <input type="text" id="name">
-        <input type="submit" id="submit">
-        <span id="status"></span>
-    </form>
-    <h1>Resultados</h1>
-    <div id="app"></div>
+    <div class="wrapper">
+        <div class="form">
+            <h1>Insert a name</h1>
+            <form id="form">
+                <div class="form-item">
+                    <input type="text" id="name">
+                </div>
+                <div class="form-item">
+                    <input type="submit" id="submit">
+                </div>
+                <span id="status" class="status"></span>
+            </form>
+        </div>
+        <h1>Name List</h1>
+        <div id="app"></div>
+    </div>
 <script src="script.js"></script>
 </body>
 </html>
