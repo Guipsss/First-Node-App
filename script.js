@@ -66,7 +66,6 @@ let getNames = () => {
             <table>
             <tr>
                 <th>Nome</th>
-                <th>ID</th>
             </tr>
             ${data.map(i => `
                 <tr>
